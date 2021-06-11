@@ -1,6 +1,6 @@
 {
   "name": "activity-manager",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha.1",
   "private": true,
   "author": {
     "name": "Grasshopper.io",
@@ -12,7 +12,7 @@
     "build:mac": "electron-builder -m -c.extraMetadata.main=build/electron.js",
     "build:win": "electron-builder -w -c.extraMetadata.main=build/electron.js",
     "build": "react-scripts build",
-    "clean": "rimraf build package",
+    "clean": "rimraf build dists",
     "package:linux": "yarn build && yarn build:linux",
     "package:mac": "yarn build && yarn build:mac",
     "package:win": "yarn build && yarn build:win",
