@@ -20,10 +20,11 @@ jobs:
       - name: Context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
+        env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           echo "$GITHUB_CONTEXT"
-          echoo "$GH_TOKEN"
+          echo "$GH_TOKEN"
 
       - name: Checkout repository
         uses: actions/checkout@v2
