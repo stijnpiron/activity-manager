@@ -11,24 +11,25 @@
     "build:linux": "electron-builder -l -c.extraMetadata.main=build/electron.js",
     "build:mac": "electron-builder -m -c.extraMetadata.main=build/electron.js",
     "build:win": "electron-builder -w -c.extraMetadata.main=build/electron.js",
-    "build": "yarn clean && react-scripts build",
-    "clean": "rimraf build dist",
-    "dist:linux": "yarn build && yarn build:linux",
-    "dist:mac": "yarn build && yarn build:mac",
-    "dist:win": "yarn build && yarn build:win",
-    "dist": "yarn build && yarn build:linux && yarn build:mac && yarn build:win",
+    "build": "react-scripts build",
+    "clean": "rimraf build package",
+    "package:linux": "yarn build && yarn build:linux",
+    "package:mac": "yarn build && yarn build:mac",
+    "package:win": "yarn build && yarn build:win",
+    "package": "yarn build && yarn build:linux && yarn build:mac && yarn build:win",
     "eject": "react-scripts eject",
     "lf": "npm run prettier && npm run lint",
-    "lint:commit": "eslint src/**/*.{ts,tsx}",
+    "lint:check": "eslint src/**/*.{ts,tsx}",
     "lint": "eslint --fix src/**/*.{ts,tsx}",
     "postinstall": "electron-builder install-app-deps",
     "pre-commit": "lint-staged",
-    "prettier:commit": "prettier",
+    "prettier:check": "prettier",
     "prettier": "prettier --config ./.prettierrc --list-different \"src/**/*{.ts,.js,.json,.css,.scss}\" --write",
     "react-start": "react-scripts start",
-    "release:win": "yarn clean && yarn build && electron-builder --windows --publish always",
-    "release": "yarn clean && yarn build && electron-builder --mac --windows --linux --publish always",
+    "release:win": "yarn build && electron-builder --windows --publish always",
+    "release": "yarn build && electron-builder --mac --windows --linux --publish always",
     "start": "concurrently -k \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electronmon .\"",
+    "test:ci": "echo \"No tests available at the moment\"",
     "test": "react-scripts test"
   },
   "dependencies": {
@@ -42,12 +43,12 @@
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3"
   },
+  "//": "don't  update following packages because of CRA dependency issues: [ babel-jest, jest, ts-jest ]",
   "devDependencies": {
-    "//": "don't  update following packages because of CRA dependency issues: [ babel-jest, jest, ts-jest ]",
     "@babel/core": "^7.14.5",
     "@babel/preset-env": "^7.14.5",
     "@babel/preset-typescript": "^7.14.5",
-    "@testing-library/jest-dom": "^5.13.0",
+    "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.1.9",
     "@types/jest": "^26.0.23",
@@ -89,7 +90,7 @@
   },
   "lint-staged": {
     "src/**/*.+(js|json|ts|tsx)": [
-      "npm run lint:commit"
+      "npm run lint:check"
     ],
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "npm run prettier"
