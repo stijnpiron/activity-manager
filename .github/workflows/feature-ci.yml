@@ -19,13 +19,16 @@ jobs:
           node-version: ${{ secrets.NODE_LTS }}
 
       - name: Install dependencies
-        run: yarn install
+        run: |
+          yarn install
 
       - name: Run linter
-        run: yarn lint:check
+        run: |
+          yarn lint:check
 
       - name: Run tests
-        run: yarn test:ci
+        run: |
+          yarn test:ci
 
   build:
     name: Build
@@ -41,7 +44,8 @@ jobs:
 
       # - name: Get yarn cache directory path
       #   id: yarn-cache-dir-path
-      #   run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      #   run: |
+      #     echo "::set-output name=dir::$(yarn config get cacheFolder)"
 
       # - uses: actions/cache@v2
       #   id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
@@ -53,7 +57,9 @@ jobs:
 
       - name: yarn install
         # if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn install
+        run: |
+          yarn install
 
       - name: Build
-        run: yarn build
+        run: |
+          yarn build
