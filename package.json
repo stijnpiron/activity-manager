@@ -19,16 +19,17 @@
     "dist": "yarn build && yarn build:linux && yarn build:mac && yarn build:win",
     "eject": "react-scripts eject",
     "lf": "npm run prettier && npm run lint",
-    "lint:commit": "eslint src/**/*.{ts,tsx}",
+    "lint:check": "eslint src/**/*.{ts,tsx}",
     "lint": "eslint --fix src/**/*.{ts,tsx}",
     "postinstall": "electron-builder install-app-deps",
     "pre-commit": "lint-staged",
-    "prettier:commit": "prettier",
+    "prettier:check": "prettier",
     "prettier": "prettier --config ./.prettierrc --list-different \"src/**/*{.ts,.js,.json,.css,.scss}\" --write",
     "react-start": "react-scripts start",
     "release:win": "yarn clean && yarn build && electron-builder --windows --publish always",
     "release": "yarn clean && yarn build && electron-builder --mac --windows --linux --publish always",
     "start": "concurrently -k \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electronmon .\"",
+    "test:ci": "echo \"No tests available at the moment\"",
     "test": "react-scripts test"
   },
   "dependencies": {
@@ -89,7 +90,7 @@
   },
   "lint-staged": {
     "src/**/*.+(js|json|ts|tsx)": [
-      "npm run lint:commit"
+      "npm run lint:check"
     ],
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "npm run prettier"
