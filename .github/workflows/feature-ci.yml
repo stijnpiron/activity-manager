@@ -6,8 +6,8 @@ on:
     branches: [main]
 
 jobs:
-  lint-test-and-build:
-    name: Lint, Test and Build
+  lint-and-test:
+    name: Lint and Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -27,6 +27,22 @@ jobs:
 
       - name: Run tests
         run: yarn test:ci
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install
 
       - name: Build
         run: yarn build
