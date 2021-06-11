@@ -20,7 +20,9 @@ jobs:
       - name: Context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          echo "$GITHUB_CONTEXT"
 
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -36,7 +38,6 @@ jobs:
 
       - name: Publish
         run: |
-          GH_TOKEN=${{ secrets.GH_TOKEN }}
           yarn run package
 
       - name: Cleanup artifacts
