@@ -36,7 +36,7 @@ jobs:
 
       - name: Publish
         run: |
-          yarn run dist
+          yarn run package
 
       - name: Cleanup artifacts
         if: matrix.os != 'windows-latest'
