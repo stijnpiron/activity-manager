@@ -18,13 +18,13 @@
     "dist:win": "yarn build && yarn build:win",
     "dist": "yarn build && yarn build:linux && yarn build:mac && yarn build:win",
     "eject": "react-scripts eject",
-    "format:commit": "prettier --config ./.prettierrc --list-different \"src/**/*{.ts,.js,.json,.css,.scss,.tsx}\"",
-    "format": "prettier --config ./.prettierrc --list-different \"src/**/*{.ts,.js,.json,.css,.scss,.tsx}\" --write",
-    "lf:commit": "npm run format:commit && npm run lint:commit",
-    "lf": "npm run format && npm run lint",
+    "prettier:commit": "prettier",
+    "prettier": "prettier --write",
+    "lf": "npm run prettier && npm run lint",
     "lint:commit": "eslint src/**/*.{ts,tsx}",
     "lint": "eslint --fix src/**/*.{ts,tsx}",
     "postinstall": "electron-builder install-app-deps",
+    "pre-commit": "lint-staged",
     "react-start": "react-scripts start",
     "release:win": "yarn clean && yarn build && electron-builder --windows --publish always",
     "release": "yarn clean && yarn build && electron-builder --mac --windows --linux --publish always",
@@ -68,6 +68,7 @@
     "eslint-plugin-unused-imports": "^1.1.1",
     "husky": "^6.0.0",
     "jest": "26.6.0",
+    "lint-staged": "^11.0.0",
     "prettier": "^2.3.1",
     "rimraf": "^3.0.2",
     "ts-jest": "26.5.3",
@@ -83,11 +84,6 @@
   },
   "homepage": "./",
   "main": "./public/electron.js",
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lf:commit"
-    }
-  },
   "build": {
     "appId": "io.grasshopper.ActivityManager",
     "productName": "Activity Manager",
