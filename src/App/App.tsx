@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { MenuItem } from 'interfaces/menu.interface';
 import React from 'react';
-import Menu from './Menu';
+import Menu from './components/Menu';
 
 type AppProps = {
   title: string;
@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
+      background: '#69AA49',
     },
     content: {
       flexGrow: 1,
