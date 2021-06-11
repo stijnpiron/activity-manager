@@ -1,13 +1,18 @@
 # Activity Manager
-![GitHub branch checks state](https://img.shields.io/github/checks-status/stijnpiron/activity-manager/main?label=main%20branch%20checks)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/stijnpiron/activity-manager)
-![GitHub repo size](https://img.shields.io/github/repo-size/stijnpiron/activity-manager)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/stijnpiron/activity-manager)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/stijnpiron/activity-manager)
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/stijnpiron/activity-manager?include_prereleases)\
+
+### Project status
+
 [![Feature-CI](https://github.com/stijnpiron/activity-manager/actions/workflows/feature-ci.yml/badge.svg)](https://github.com/stijnpiron/activity-manager/actions/workflows/feature-ci.yml)
 [![CodeQL](https://github.com/stijnpiron/activity-manager/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/stijnpiron/activity-manager/actions/workflows/codeql-analysis.yml)
 [![Electron-CD](https://github.com/stijnpiron/activity-manager/actions/workflows/electron-cd.yml/badge.svg)](https://github.com/stijnpiron/activity-manager/actions/workflows/electron-cd.yml)
+
+### Project information
+
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/stijnpiron/activity-manager)
+![GitHub repo size](https://img.shields.io/github/repo-size/stijnpiron/activity-manager)\
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/stijnpiron/activity-manager?label=latest%20stable%20release)\
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/stijnpiron/activity-manager?include_prereleases&label=latest%20%28nightly%29%20release)\
+![GitHub package.json version](https://img.shields.io/github/package-json/v/stijnpiron/activity-manager?label=current%20working%20version)\
 
 ## Available Scripts
 
