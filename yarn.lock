@@ -1818,7 +1818,7 @@
     lz-string "^1.4.4"
     pretty-format "^26.6.2"
 
-"@testing-library/jest-dom@^5.11.4":
+"@testing-library/jest-dom@^5.13.0":
   version "5.13.0"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/@testing-library/jest-dom/-/jest-dom-5.13.0.tgz#0a365684e2c1159f857f5915be50089fc5657df0"
   integrity sha1-CjZWhOLBFZ+Ff1kVvlAIn8VlffA=
@@ -1832,7 +1832,7 @@
     lodash "^4.17.15"
     redent "^3.0.0"
 
-"@testing-library/react@^11.1.0":
+"@testing-library/react@^11.2.7":
   version "11.2.7"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/@testing-library/react/-/react-11.2.7.tgz#b29e2e95c6765c815786c0bc1d5aed9cb2bf7818"
   integrity sha1-sp4ulcZ2XIFXhsC8HVrtnLK/eBg=
@@ -1840,10 +1840,10 @@
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^7.28.1"
 
-"@testing-library/user-event@^12.1.10":
-  version "12.8.3"
-  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/@testing-library/user-event/-/user-event-12.8.3.tgz#1aa3ed4b9f79340a1e1836bc7f57c501e838704a"
-  integrity sha1-GqPtS595NAoeGDa8f1fFAeg4cEo=
+"@testing-library/user-event@^13.1.9":
+  version "13.1.9"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/@testing-library/user-event/-/user-event-13.1.9.tgz#29e49a42659ac3c1023565ff56819e0153a82e99"
+  integrity sha1-KeSaQmWaw8ECNWX/VoGeAVOoLpk=
   dependencies:
     "@babel/runtime" "^7.12.5"
 
@@ -1959,7 +1959,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@*", "@types/jest@^26.0.20":
+"@types/jest@*", "@types/jest@^26.0.23":
   version "26.0.23"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/@types/jest/-/jest-26.0.23.tgz#a1b7eab3c503b80451d019efb588ec63522ee4e7"
   integrity sha1-obfqs8UDuARR0BnvtYjsY1Iu5Oc=
@@ -1987,12 +1987,7 @@
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/@types/node/-/node-15.12.2.tgz#1f2b42c4be7156ff4a6f914b2fb03d05fa84e38d"
   integrity sha1-HytCxL5xVv9Kb5FLL7A9BfqE440=
 
-"@types/node@^12.0.12":
-  version "12.20.15"
-  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/@types/node/-/node-12.20.15.tgz#10ee6a6a3f971966fddfa3f6e89ef7a73ec622df"
-  integrity sha1-EO5qaj+XGWb936P26J73pz7GIt8=
-
-"@types/node@^14.14.25":
+"@types/node@^14.17.3", "@types/node@^14.6.2":
   version "14.17.3"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/@types/node/-/node-14.17.3.tgz#6d327abaa4be34a74e421ed6409a0ae2f47f4c3d"
   integrity sha1-bTJ6uqS+NKdOQh7WQJoK4vR/TD0=
@@ -2030,7 +2025,7 @@
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
   integrity sha1-FZJUFOCtLNdlv+9YhC9+JqesyyQ=
 
-"@types/react-dom@^17.0.0":
+"@types/react-dom@^17.0.7":
   version "17.0.7"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/@types/react-dom/-/react-dom-17.0.7.tgz#b8ee15ead9e5d6c2c858b44949fdf2ebe5212232"
   integrity sha1-uO4V6tnl1sLIWLRJSf3y6+UhIjI=
@@ -2044,7 +2039,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^17.0.1":
+"@types/react@*", "@types/react@^17.0.11":
   version "17.0.11"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/@types/react/-/react-17.0.11.tgz#67fcd0ddbf5a0b083a0f94e926c7d63f3b836451"
   integrity sha1-Z/zQ3b9aCwg6D5TpJsfWPzuDZFE=
@@ -2478,6 +2473,13 @@ ajv-errors@^1.0.0:
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/ajv-errors/-/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
   integrity sha1-81mGrOuRr63sQQL72FAUlQzvpk0=
 
+ajv-formats@^2.0.2:
+  version "2.1.0"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/ajv-formats/-/ajv-formats-2.1.0.tgz#96eaf83e38d32108b66d82a9cb0cfa24886cdfeb"
+  integrity sha1-lur4PjjTIQi2bYKpywz6JIhs3+s=
+  dependencies:
+    ajv "^8.0.0"
+
 ajv-keywords@^3.1.0, ajv-keywords@^3.4.1, ajv-keywords@^3.5.2:
   version "3.5.2"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/ajv-keywords/-/ajv-keywords-3.5.2.tgz#31f29da5ab6e00d1c2d329acf7b5929614d5014d"
@@ -2493,7 +2495,7 @@ ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.0, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ajv@^8.0.1:
+ajv@^8.0.0, ajv@^8.0.1, ajv@^8.1.0:
   version "8.6.0"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/ajv/-/ajv-8.6.0.tgz#60cc45d9c46a477d80d92c48076d972c342e5720"
   integrity sha1-YMxF2cRqR32A2SxIB22XLDQuVyA=
@@ -2829,6 +2831,11 @@ atob@^2.1.2:
   version "2.1.2"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha1-bZUX654DDSQ2ZmZR6GvZ9vE1M8k=
+
+atomically@^1.7.0:
+  version "1.7.0"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/atomically/-/atomically-1.7.0.tgz#c07a0458432ea6dbc9a3506fffa424b48bccaafe"
+  integrity sha1-wHoEWEMuptvJo1Bv/6QktIvMqv4=
 
 autoprefixer@^9.6.1:
   version "9.8.6"
@@ -3908,20 +3915,36 @@ concat-stream@^1.5.0, concat-stream@^1.6.2:
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
 
-concurrently@^5.3.0:
-  version "5.3.0"
-  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/concurrently/-/concurrently-5.3.0.tgz#7500de6410d043c912b2da27de3202cb489b1e7b"
-  integrity sha1-dQDeZBDQQ8kSston3jICy0ibHns=
+concurrently@^6.2.0:
+  version "6.2.0"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/concurrently/-/concurrently-6.2.0.tgz#587e2cb8afca7234172d8ea55176088632c4c56d"
+  integrity sha1-WH4suK/KcjQXLY6lUXYIhjLExW0=
   dependencies:
-    chalk "^2.4.2"
-    date-fns "^2.0.1"
-    lodash "^4.17.15"
-    read-pkg "^4.0.1"
-    rxjs "^6.5.2"
+    chalk "^4.1.0"
+    date-fns "^2.16.1"
+    lodash "^4.17.21"
+    read-pkg "^5.2.0"
+    rxjs "^6.6.3"
     spawn-command "^0.0.2-1"
-    supports-color "^6.1.0"
+    supports-color "^8.1.0"
     tree-kill "^1.2.2"
-    yargs "^13.3.0"
+    yargs "^16.2.0"
+
+conf@^10.0.0:
+  version "10.0.1"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/conf/-/conf-10.0.1.tgz#038093e5cbddc0e59bc14f63382c4ce732a4781d"
+  integrity sha1-A4CT5cvdwOWbwU9jOCxM5zKkeB0=
+  dependencies:
+    ajv "^8.1.0"
+    ajv-formats "^2.0.2"
+    atomically "^1.7.0"
+    debounce-fn "^4.0.0"
+    dot-prop "^6.0.1"
+    env-paths "^2.2.1"
+    json-schema-typed "^7.0.3"
+    onetime "^5.1.2"
+    pkg-up "^3.1.0"
+    semver "^7.3.5"
 
 config-chain@^1.1.11:
   version "1.1.13"
@@ -4447,10 +4470,17 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-date-fns@^2.0.1:
+date-fns@^2.16.1:
   version "2.22.1"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/date-fns/-/date-fns-2.22.1.tgz#1e5af959831ebb1d82992bf67b765052d8f0efc4"
   integrity sha1-Hlr5WYMeux2CmSv2e3ZQUtjw78Q=
+
+debounce-fn@^4.0.0:
+  version "4.0.0"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/debounce-fn/-/debounce-fn-4.0.0.tgz#ed76d206d8a50e60de0dd66d494d82835ffe61c7"
+  integrity sha1-7XbSBtilDmDeDdZtSU2Cg1/+Ycc=
+  dependencies:
+    mimic-fn "^3.0.0"
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
@@ -4822,6 +4852,13 @@ dot-prop@^5.2.0:
   dependencies:
     is-obj "^2.0.0"
 
+dot-prop@^6.0.1:
+  version "6.0.1"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/dot-prop/-/dot-prop-6.0.1.tgz#fc26b3cf142b9e59b74dbd39ed66ce620c681083"
+  integrity sha1-/CazzxQrnlm3Tb057WbOYgxoEIM=
+  dependencies:
+    is-obj "^2.0.0"
+
 dotenv-expand@5.1.0, dotenv-expand@^5.1.0:
   version "5.1.0"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/dotenv-expand/-/dotenv-expand-5.1.0.tgz#3fbaf020bfd794884072ea26b1e9791d45a629f0"
@@ -4882,7 +4919,7 @@ ejs@^3.1.6:
   dependencies:
     jake "^10.6.1"
 
-electron-builder@^22.9.1:
+electron-builder@^22.10.5:
   version "22.10.5"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/electron-builder/-/electron-builder-22.10.5.tgz#03b156b93e6012609027c3aaa69201a3ad21e454"
   integrity sha1-A7FWuT5gEmCQJ8OqppIBo60h5FQ=
@@ -4902,7 +4939,7 @@ electron-builder@^22.9.1:
     update-notifier "^5.1.0"
     yargs "^16.2.0"
 
-electron-devtools-installer@^3.1.1:
+electron-devtools-installer@^3.2.0:
   version "3.2.0"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/electron-devtools-installer/-/electron-devtools-installer-3.2.0.tgz#acc48d24eb7033fe5af284a19667e73b78d406d0"
   integrity sha1-rMSNJOtwM/5a8oShlmfnO3jUBtA=
@@ -4912,10 +4949,10 @@ electron-devtools-installer@^3.1.1:
     tslib "^2.1.0"
     unzip-crx-3 "^0.2.0"
 
-electron-is-dev@^1.2.0:
-  version "1.2.0"
-  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/electron-is-dev/-/electron-is-dev-1.2.0.tgz#2e5cea0a1b3ccf1c86f577cee77363ef55deb05e"
-  integrity sha1-LlzqChs8zxyG9XfO53Nj71XesF4=
+electron-is-dev@^2.0.0:
+  version "2.0.0"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/electron-is-dev/-/electron-is-dev-2.0.0.tgz#833487a069b8dad21425c67a19847d9064ab19bd"
+  integrity sha1-gzSHoGm42tIUJcZ6GYR9kGSrGb0=
 
 electron-publish@22.10.5:
   version "22.10.5"
@@ -4938,6 +4975,14 @@ electron-squirrel-startup@^1.0.0:
   dependencies:
     debug "^2.2.0"
 
+electron-store@^8.0.0:
+  version "8.0.0"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/electron-store/-/electron-store-8.0.0.tgz#81a4e687958e2dae1c5c84cc099a8148be776337"
+  integrity sha1-gaTmh5WOLa4cXITMCZqBSL53Yzc=
+  dependencies:
+    conf "^10.0.0"
+    type-fest "^1.0.2"
+
 electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.723:
   version "1.3.752"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/electron-to-chromium/-/electron-to-chromium-1.3.752.tgz#0728587f1b9b970ec9ffad932496429aef750d09"
@@ -4957,24 +5002,24 @@ electron-updater@^4.3.9:
     lodash.isequal "^4.5.0"
     semver "^7.3.5"
 
-electron@^11.2.1:
-  version "11.4.8"
-  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/electron/-/electron-11.4.8.tgz#6f89be903bd917bda52afacf7cd3bdf2154b5c79"
-  integrity sha1-b4m+kDvZF72lKvrPfNO98hVLXHk=
+electron@^13.1.2:
+  version "13.1.2"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/electron/-/electron-13.1.2.tgz#8c9abf9015766c9cbc16f10c99282d00d6ae1b90"
+  integrity sha1-jJq/kBV2bJy8FvEMmSgtANauG5A=
   dependencies:
     "@electron/get" "^1.0.1"
-    "@types/node" "^12.0.12"
+    "@types/node" "^14.6.2"
     extract-zip "^1.0.3"
 
-electronmon@^1.1.2:
-  version "1.1.2"
-  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/electronmon/-/electronmon-1.1.2.tgz#b64c6f20c0faeb07bec7554d1fee5c88914e7fcc"
-  integrity sha1-tkxvIMD66we+x1VNH+5ciJFOf8w=
+electronmon@^2.0.1:
+  version "2.0.1"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/electronmon/-/electronmon-2.0.1.tgz#f946ec432bf12e87c948921204b7b2b76a86e7ca"
+  integrity sha1-+UbsQyvxLofJSJISBLeyt2qG58o=
   dependencies:
     chalk "^3.0.0"
     import-from "^3.0.0"
     runtime-required "^1.0.2"
-    watchboy "^0.4.2"
+    watchboy "^0.4.3"
 
 elliptic@^6.5.3:
   version "6.5.4"
@@ -5052,7 +5097,7 @@ entities@^2.0.0:
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/entities/-/entities-2.2.0.tgz#098dc90ebb83d8dffa089d55256b351d34c4da55"
   integrity sha1-CY3JDruD2N/6CJ1VJWs1HTTE2lU=
 
-env-paths@^2.2.0:
+env-paths@^2.2.0, env-paths@^2.2.1:
   version "2.2.1"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/env-paths/-/env-paths-2.2.1.tgz#420399d416ce1fbe9bc0a07c62fa68d67fd0f8f2"
   integrity sha1-QgOZ1BbOH76bwKB8Yvpo1n/Q+PI=
@@ -7674,6 +7719,11 @@ json-schema-traverse@^1.0.0:
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz#ae7bcb3656ab77a73ba5c49bf654f38e6b6860e2"
   integrity sha1-rnvLNlard6c7pcSb9lTzjmtoYOI=
 
+json-schema-typed@^7.0.3:
+  version "7.0.3"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/json-schema-typed/-/json-schema-typed-7.0.3.tgz#23ff481b8b4eebcd2ca123b4fa0409e66469a2d9"
+  integrity sha1-I/9IG4tO680soSO0+gQJ5mRpotk=
+
 json-stable-stringify-without-jsonify@^1.0.1:
   version "1.0.1"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
@@ -8277,6 +8327,11 @@ mimic-fn@^2.1.0:
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/mimic-fn/-/mimic-fn-2.1.0.tgz#7ed2c2ccccaf84d3ffcb7a69b57711fc2083401b"
   integrity sha1-ftLCzMyvhNP/y3pptXcR/CCDQBs=
 
+mimic-fn@^3.0.0:
+  version "3.1.0"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/mimic-fn/-/mimic-fn-3.1.0.tgz#65755145bbf3e36954b949c16450427451d5ca74"
+  integrity sha1-ZXVRRbvz42lUuUnBZFBCdFHVynQ=
+
 mimic-response@^1.0.0, mimic-response@^1.0.1:
   version "1.0.1"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/mimic-response/-/mimic-response-1.0.1.tgz#4923538878eef42063cb8a3e3b0798781487ab1b"
@@ -8789,7 +8844,7 @@ once@^1.3.0, once@^1.3.1, once@^1.4.0:
   dependencies:
     wrappy "1"
 
-onetime@^5.1.0:
+onetime@^5.1.0, onetime@^5.1.2:
   version "5.1.2"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/onetime/-/onetime-5.1.2.tgz#d0e96ebb56b07476df1dd9c4806e5237985ca45e"
   integrity sha1-0Oluu1awdHbfHdnEgG5SN5hcpF4=
@@ -9175,7 +9230,7 @@ pkg-dir@^4.1.0, pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
-pkg-up@3.1.0:
+pkg-up@3.1.0, pkg-up@^3.1.0:
   version "3.1.0"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/pkg-up/-/pkg-up-3.1.0.tgz#100ec235cc150e4fd42519412596a28512a0def5"
   integrity sha1-EA7CNcwVDk/UJRlBJZaihRKg3vU=
@@ -10350,15 +10405,6 @@ read-pkg@^3.0.0:
     normalize-package-data "^2.3.2"
     path-type "^3.0.0"
 
-read-pkg@^4.0.1:
-  version "4.0.1"
-  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/read-pkg/-/read-pkg-4.0.1.tgz#963625378f3e1c4d48c85872b5a6ec7d5d093237"
-  integrity sha1-ljYlN48+HE1IyFhytabsfV0JMjc=
-  dependencies:
-    normalize-package-data "^2.3.2"
-    parse-json "^4.0.0"
-    pify "^3.0.0"
-
 read-pkg@^5.2.0:
   version "5.2.0"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/read-pkg/-/read-pkg-5.2.0.tgz#7bf295438ca5a33e56cd30e053b34ee7250c93cc"
@@ -10780,7 +10826,7 @@ runtime-required@^1.0.2:
   dependencies:
     resolve-from "^4.0.0"
 
-rxjs@^6.5.2, rxjs@^6.6.3:
+rxjs@^6.6.3:
   version "6.6.7"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/rxjs/-/rxjs-6.6.7.tgz#90ac018acabf491bf65044235d5863c4dab804c9"
   integrity sha1-kKwBisq/SRv2UEQjXVhjxNq4BMk=
@@ -11624,6 +11670,13 @@ supports-color@^7.0.0, supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
+supports-color@^8.1.0:
+  version "8.1.1"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/supports-color/-/supports-color-8.1.1.tgz#cd6fc17e28500cff56c1b86c0a7fd4a54a73005c"
+  integrity sha1-zW/BfihQDP9WwbhsCn/UpUpzAFw=
+  dependencies:
+    has-flag "^4.0.0"
+
 supports-hyperlinks@^2.0.0:
   version "2.2.0"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/supports-hyperlinks/-/supports-hyperlinks-2.2.0.tgz#4f77b42488765891774b70c79babd87f9bd594bb"
@@ -12008,6 +12061,11 @@ type-fest@^0.8.1:
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha1-CeJJ696FHTseSNJ8EFREZn8XuD0=
 
+type-fest@^1.0.2:
+  version "1.2.0"
+  resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/type-fest/-/type-fest-1.2.0.tgz#4cdf38ef9b047922c26038080cb269752ae359a2"
+  integrity sha1-TN8475sEeSLCYDgIDLJpdSrjWaI=
+
 type-is@~1.6.17, type-is@~1.6.18:
   version "1.6.18"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/type-is/-/type-is-1.6.18.tgz#4e552cd05df09467dcbc4ef739de89f2cf37c131"
@@ -12038,7 +12096,7 @@ typedarray@^0.0.6:
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^4.1.3:
+typescript@^4.3.2:
   version "4.3.2"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/typescript/-/typescript-4.3.2.tgz#399ab18aac45802d6f2498de5054fcbbe716a805"
   integrity sha1-OZqxiqxFgC1vJJjeUFT8u+cWqAU=
@@ -12376,7 +12434,7 @@ w3c-xmlserializer@^2.0.0:
   dependencies:
     xml-name-validator "^3.0.0"
 
-wait-on@^5.2.1:
+wait-on@^5.3.0:
   version "5.3.0"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/wait-on/-/wait-on-5.3.0.tgz#584e17d4b3fe7b46ac2b9f8e5e102c005c2776c7"
   integrity sha1-WE4X1LP+e0asK5+OXhAsAFwndsc=
@@ -12394,7 +12452,7 @@ walker@^1.0.7, walker@~1.0.5:
   dependencies:
     makeerror "1.0.x"
 
-watchboy@^0.4.2:
+watchboy@^0.4.3:
   version "0.4.3"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/watchboy/-/watchboy-0.4.3.tgz#4b766e7923d8122e5811a6b9736a8e3e5943838c"
   integrity sha1-S3ZueSPYEi5YEaa5c2qOPllDg4w=
@@ -12933,7 +12991,7 @@ yargs-parser@^20.2.2:
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/yargs-parser/-/yargs-parser-20.2.7.tgz#61df85c113edfb5a7a4e36eb8aa60ef423cbc90a"
   integrity sha1-Yd+FwRPt+1p6TjbriqYO9CPLyQo=
 
-yargs@^13.3.0, yargs@^13.3.2:
+yargs@^13.3.2:
   version "13.3.2"
   resolved "https://fluvius.pkgs.visualstudio.com/_packaging/FluviusFeed/npm/registry/yargs/-/yargs-13.3.2.tgz#ad7ffefec1aa59565ac915f82dccb38a9c31a2dd"
   integrity sha1-rX/+/sGqWVZayRX4Lcyzipwxot0=
