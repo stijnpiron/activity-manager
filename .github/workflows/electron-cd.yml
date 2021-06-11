@@ -23,6 +23,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           echo "$GITHUB_CONTEXT"
+          echoo "$GH_TOKEN"
 
       - name: Checkout repository
         uses: actions/checkout@v2
