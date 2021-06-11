@@ -1,28 +1,28 @@
-name: Master-CI
+# name: Master-CI
 
-on:
-  # Triggers the workflow on push events but only for the main branch.
-  # As pushing directly to main is prohibited, the workflow should only trigger when a pullrequest is merged into main.
-  push:
-    branches:
-      - main
+# on:
+#   # Triggers the workflow on push events but only for the main branch.
+#   # As pushing directly to main is prohibited, the workflow should only trigger when a pullrequest is merged into main.
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  build-and-release:
-    name: Build an Package
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+# jobs:
+#   build-and-release:
+#     name: Build an Package
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: '14'
 
-      - name: Install dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn install
+#       - name: Install dependencies
+#         if: steps.yarn-cache.outputs.cache-hit != 'true'
+#         run: yarn install
 
-      - name: Run linter
-        run: yarn release
+#       - name: Run linter
+#         run: yarn release
