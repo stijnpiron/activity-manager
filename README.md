@@ -1,4 +1,4 @@
-# Getting Started with CRA Electron Builder TypeScript
+# Activity Manager
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) using the [electron-builder-typescript](https://www.npmjs.com/package/cra-template-electron-builder-typescript) template.
 
