@@ -24,6 +24,9 @@ jobs:
           path: '**/node_modules'
           key: node_modules-${{ hashFiles('**/yarn.lock') }}
 
+      - name: List npm registry
+        run: npm config list
+
       - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install --verbose
