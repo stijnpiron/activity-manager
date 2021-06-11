@@ -14,21 +14,18 @@ type AppProps = {
 
 const menuParts: MenuItem[][] = [
   [
-    { key: 'vouchers', text: 'Vouchers', icon: 'description' },
-    { key: 'activities', text: 'Activiteiten', icon: 'rowing' },
-    { key: 'groups', text: 'Groepen', icon: 'group' },
+    { icon: 'description', key: 'vouchers', text: 'Vouchers' },
+    { icon: 'rowing', key: 'activities', text: 'Activiteiten' },
+    { icon: 'group', key: 'groups', text: 'Groepen' },
   ],
   [
-    { key: 'settings', text: 'Instellingen', icon: 'settings' },
-    { key: 'logout', text: 'Afmelden', icon: 'exit_to_app' },
+    { icon: 'settings', key: 'settings', text: 'Instellingen' },
+    { icon: 'exit_to_app', key: 'logout', text: 'Afmelden' },
   ],
 ];
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      display: 'flex',
-    },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
     },
@@ -36,20 +33,24 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       padding: theme.spacing(3),
     },
+    root: {
+      display: 'flex',
+    },
     title: {
+      alignItems: 'baseline',
       display: 'flex',
       justifyContent: 'space-between',
-      alignItems: 'baseline',
       width: '100%',
     },
     version: {
       fontSize: '12px',
     },
-  })
+  }),
 );
 
 const App: React.FC<AppProps> = (props) => {
   const classes = useStyles();
+  debugger;
 
   return (
     <div className={classes.root}>
