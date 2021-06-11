@@ -1,5 +1,10 @@
 # Activity Manager
-
+![GitHub branch checks state](https://img.shields.io/github/checks-status/stijnpiron/activity-manager/main?label=main%20branch%20checks)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/stijnpiron/activity-manager)
+![GitHub repo size](https://img.shields.io/github/repo-size/stijnpiron/activity-manager)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/stijnpiron/activity-manager)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/stijnpiron/activity-manager)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/stijnpiron/activity-manager?include_prereleases)\
 [![Feature-CI](https://github.com/stijnpiron/activity-manager/actions/workflows/feature-ci.yml/badge.svg)](https://github.com/stijnpiron/activity-manager/actions/workflows/feature-ci.yml)
 [![CodeQL](https://github.com/stijnpiron/activity-manager/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/stijnpiron/activity-manager/actions/workflows/codeql-analysis.yml)
 [![Electron-CD](https://github.com/stijnpiron/activity-manager/actions/workflows/electron-cd.yml/badge.svg)](https://github.com/stijnpiron/activity-manager/actions/workflows/electron-cd.yml)
@@ -16,10 +21,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn react-start``
+### `yarn react-start`
 
 Runs the app in development mode in a normal browser window without the Electron wrapper.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
 ### `yarn dist:win`
 
