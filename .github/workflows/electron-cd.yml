@@ -36,6 +36,7 @@ jobs:
 
       - name: Publish
         run: |
+          GH_TOKEN=${{ secrets.GH_TOKEN }}
           yarn run package
 
       - name: Cleanup artifacts
