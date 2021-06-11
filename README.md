@@ -1,6 +1,8 @@
 # Activity Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) using the [electron-builder-typescript](https://www.npmjs.com/package/cra-template-electron-builder-typescript) template.
+[![Feature-CI](https://github.com/stijnpiron/activity-manager/actions/workflows/feature-ci.yml/badge.svg)](https://github.com/stijnpiron/activity-manager/actions/workflows/feature-ci.yml)
+[![CodeQL](https://github.com/stijnpiron/activity-manager/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/stijnpiron/activity-manager/actions/workflows/codeql-analysis.yml)
+[![Electron-CD](https://github.com/stijnpiron/activity-manager/actions/workflows/electron-cd.yml/badge.svg)](https://github.com/stijnpiron/activity-manager/actions/workflows/electron-cd.yml)
 
 ## Available Scripts
 
@@ -8,11 +10,16 @@ In the project directory, you can run:
 
 ### `yarn start`
 
-Runs the app in the development mode within a local ElectronJS window.\
+Runs the app in development mode within a local ElectronJS window.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+### `yarn react-start``
+
+Runs the app in development mode in a normal browser window without the Electron wrapper.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `yarn dist:win`
 
