@@ -50,7 +50,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const App: React.FC<AppProps> = (props) => {
   const classes = useStyles();
-  debugger;
 
   return (
     <div className={classes.root}>
