@@ -1,8 +1,0 @@
-{
-  "src/**/*.+(js|json|ts|tsx)": [
-    "npm run lint:commit",
-  ],
-  "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-    "npm run prettier"
-  ]
-}
