@@ -38,7 +38,9 @@ jobs:
       - name: Publish
         run: |
           yarn run package
-
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Cleanup artifacts
         if: matrix.os != 'windows-latest'
         run: |
@@ -63,4 +65,5 @@ jobs:
         with:
           files: 'artifacts/**'
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
