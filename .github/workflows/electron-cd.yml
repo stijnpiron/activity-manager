@@ -21,6 +21,7 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -54,7 +55,7 @@ jobs:
         with:
           name: ${{ matrix.os }}
           path: artifacts
-          
+
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
