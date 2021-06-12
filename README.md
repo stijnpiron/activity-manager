@@ -12,7 +12,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/stijnpiron/activity-manager)\
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/stijnpiron/activity-manager?label=latest%20stable%20release)\
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/stijnpiron/activity-manager?include_prereleases&label=latest%20%28nightly%29%20release)\
-![GitHub package.json version](https://img.shields.io/github/package-json/v/stijnpiron/activity-manager?label=current%20working%20version)\
+![GitHub package.json version](https://img.shields.io/github/package-json/v/stijnpiron/activity-manager?label=current%20main%%20version)
 
 ## Available Scripts
 

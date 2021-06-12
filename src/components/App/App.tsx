@@ -27,6 +27,7 @@ const menuParts: MenuItem[][] = [
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
+      background: '#7aad55',
       zIndex: theme.zIndex.drawer + 1,
     },
     content: {
