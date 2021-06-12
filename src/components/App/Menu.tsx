@@ -55,7 +55,7 @@ const Menu: React.FC<MenuProps> = ({ parts }) => {
           Array.isArray(part) ? (
             <List key={`list-${i}`}>
               {part.map((mi) => (
-                <ListItem button key={mi.key}>
+                <ListItem button key={mi.key} disabled={mi.disabled} onClick={mi.action}>
                   <ListItemIcon>
                     <Icon>{mi.icon}</Icon>
                   </ListItemIcon>

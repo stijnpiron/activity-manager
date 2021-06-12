@@ -10,19 +10,8 @@ import Menu from './Menu';
 type AppProps = {
   title: string;
   version: string;
+  shutdown: () => void;
 };
-
-const menuParts: MenuItem[][] = [
-  [
-    { icon: 'description', key: 'vouchers', text: 'Vouchers' },
-    { icon: 'rowing', key: 'activities', text: 'Activiteiten' },
-    { icon: 'group', key: 'groups', text: 'Groepen' },
-  ],
-  [
-    { icon: 'settings', key: 'settings', text: 'Instellingen' },
-    { icon: 'exit_to_app', key: 'logout', text: 'Afmelden' },
-  ],
-];
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -51,6 +40,18 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const App: React.FC<AppProps> = (props) => {
   const classes = useStyles();
+
+  const menuParts: MenuItem[][] = [
+    [
+      { disabled: true, icon: 'description', key: 'vouchers', text: 'Vouchers' },
+      { disabled: true, icon: 'rowing', key: 'activities', text: 'Activiteiten' },
+      { disabled: true, icon: 'group', key: 'groups', text: 'Groepen' },
+    ],
+    [
+      { disabled: true, icon: 'settings', key: 'settings', text: 'Instellingen' },
+      { action: props.shutdown, disabled: true, icon: 'exit_to_app', key: 'shutdown', text: 'Afsluiten' },
+    ],
+  ];
 
   return (
     <div className={classes.root}>

@@ -1,5 +1,4 @@
-const electronUpdater = require('electron-updater');
-const { app, BrowserWindow, dialog, Menu } = require('electron');
+const { app, BrowserWindow, dialog, ipcMain, Menu } = require('electron');
 const isDev = require('electron-is-dev');
 const path = require('path');
 const Store = require('electron-store');
@@ -13,92 +12,14 @@ function logMessage(text) {
 const isMac = process.platform === 'darwin';
 
 const menuItems = [
-  // { role: 'appMenu' }
   ...(isMac
     ? [
         {
           label: 'Activity Manager',
-          submenu: [
-            // { role: 'about' },
-            // { type: 'separator' },
-            // { role: 'services' },
-            // { type: 'separator' },
-            // { role: 'hide' },
-            // { role: 'hideothers' },
-            // { role: 'unhide' },
-            // { type: 'separator' },
-            { role: 'quit' },
-          ],
+          submenu: [{ role: 'quit' }],
         },
       ]
     : []),
-  // { role: 'fileMenu' }
-  {
-    label: 'File',
-    submenu: [isMac ? { role: 'close' } : { role: 'quit' }],
-  },
-  // { role: 'editMenu' }
-  // {
-  //   label: 'Edit',
-  //   submenu: [
-  //     { role: 'undo' },
-  //     { role: 'redo' },
-  //     { type: 'separator' },
-  //     { role: 'cut' },
-  //     { role: 'copy' },
-  //     { role: 'paste' },
-  //     ...(isMac
-  //       ? [
-  //           { role: 'pasteAndMatchStyle' },
-  //           { role: 'delete' },
-  //           { role: 'selectAll' },
-  //           { type: 'separator' },
-  //           {
-  //             label: 'Speech',
-  //             submenu: [{ role: 'startSpeaking' }, { role: 'stopSpeaking' }],
-  //           },
-  //         ]
-  //       : [{ role: 'delete' }, { type: 'separator' }, { role: 'selectAll' }]),
-  //   ],
-  // },
-  // { role: 'viewMenu' }
-  // {
-  //   label: 'View',
-  //   submenu: [
-  //     { role: 'reload' },
-  //     { role: 'forceReload' },
-  //     { role: 'toggleDevTools' },
-  //     { type: 'separator' },
-  //     { role: 'resetZoom' },
-  //     { role: 'zoomIn' },
-  //     { role: 'zoomOut' },
-  //     { type: 'separator' },
-  //     { role: 'togglefullscreen' },
-  //   ],
-  // },
-  // { role: 'windowMenu' }
-  // {
-  //   label: 'Window',
-  //   submenu: [
-  //     { role: 'minimize' },
-  //     { role: 'zoom' },
-  //     ...(isMac
-  //       ? [{ type: 'separator' }, { role: 'front' }, { type: 'separator' }, { role: 'window' }]
-  //       : [{ role: 'close' }]),
-  //   ],
-  // },
-  // {
-  //   role: 'help',
-  //   submenu: [
-  //     {
-  //       label: 'Learn More',
-  //       click: async () => {
-  //         const { shell } = require('electron');
-  //         await shell.openExternal('https://electronjs.org');
-  //       },
-  //     },
-  //   ],
-  // },
 ];
 
 // add logging to the app
@@ -109,11 +30,11 @@ logMessage('App starting...');
 // first instantiate the class
 const store = new Store({
   // we'll call our data file 'user-preferences'
-  name: 'user-preferences',
   defaults: {
     // 800x600 is the default size of our window
-    windowBounds: { width: 800, height: 600 },
+    windowBounds: { height: 600, width: 800 },
   },
+  name: 'user-preferences',
   // encryptionKey: 'encryption key', // use node-keytar to store the encryption key safely
   // fileExtension: '',
 });
@@ -136,6 +57,8 @@ if (isDev) {
 function createWindow(width, height) {
   const mainWindow = new BrowserWindow({
     height,
+    minHeight: '600p',
+    minWidth: '800px',
     webPreferences: {
       contextIsolation: true,
       enableRemoteModule: false,
@@ -162,8 +85,11 @@ function createWindow(width, height) {
   // remove menu bar as there is no need to have one
   mainWindow.removeMenu();
 
-  const menu = Menu.buildFromTemplate(menuItems);
-  Menu.setApplicationMenu(menu);
+  // on a mac system, make sure to remove all menu items, only keep the app-menu to shut down the app.
+  if (isMac) {
+    const menu = Menu.buildFromTemplate(menuItems);
+    Menu.setApplicationMenu(menu);
+  }
 
   // open DevTools if in dev mode
   if (isDev) {
@@ -257,6 +183,3 @@ autoUpdater.on('update-downloaded', (info) => {
     }
   });
 });
-
-// the code above has been adapted from a starter example in the Electron docs:
-// https://www.electronjs.org/docs/tutorial/quick-start#create-the-main-script-file
