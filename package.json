@@ -1,6 +1,6 @@
 {
   "name": "activity-manager",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.1",
   "private": true,
   "author": {
     "name": "Grasshopper.io",
@@ -8,15 +8,15 @@
     "url": "https://grasshopper.io"
   },
   "scripts": {
-    "build:linux": "electron-builder -l -c.extraMetadata.main=build/electron.js",
-    "build:mac": "electron-builder -m -c.extraMetadata.main=build/electron.js",
-    "build:win": "electron-builder -w -c.extraMetadata.main=build/electron.js",
+    "build:l": "electron-builder -l -c.extraMetadata.main=build/electron.js",
+    "build:m": "electron-builder -m -c.extraMetadata.main=build/electron.js",
+    "build:w": "electron-builder -w -c.extraMetadata.main=build/electron.js",
     "build": "react-scripts build",
-    "clean": "rimraf build dists",
-    "package:linux": "yarn build && yarn build:linux",
-    "package:mac": "yarn build && yarn build:mac",
-    "package:win": "yarn build && yarn build:win",
-    "package": "yarn build && yarn build:linux && yarn build:mac && yarn build:win",
+    "clean": "rimraf build dist",
+    "package:l": "yarn clean && yarn build && yarn build:l",
+    "package:m": "yarn clean && yarn build && yarn build:m",
+    "package:w": "yarn clean && yarn build && yarn build:w",
+    "package": "yarn clean && yarn build && yarn build:l && yarn build:m && yarn build:w",
     "eject": "react-scripts eject",
     "lf": "npm run prettier && npm run lint",
     "lint:check": "eslint src/**/*.{ts,tsx}",
@@ -26,7 +26,9 @@
     "prettier:check": "prettier",
     "prettier": "prettier --config ./.prettierrc --list-different \"src/**/*{.ts,.js,.json,.css,.scss}\" --write",
     "react-start": "react-scripts start",
-    "release:win": "yarn build && electron-builder --windows --publish always",
+    "release:w": "yarn build && electron-builder --windows --publish always",
+    "release:m": "yarn build && electron-builder --mac --publish always",
+    "release:mw": "yarn build && electron-builder --mac --windows --publish always",
     "release": "yarn build && electron-builder --mac --windows --linux --publish always",
     "start": "concurrently -k \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electronmon .\"",
     "test:ci": "echo \"No tests available at the moment\"",
@@ -36,6 +38,7 @@
     "@material-ui/core": "^4.11.4",
     "cross-env": "^7.0.3",
     "electron-is-dev": "^2.0.0",
+    "electron-log": "^4.3.5",
     "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^8.0.0",
     "electron-updater": "^4.3.9",
@@ -116,7 +119,6 @@
       "buildResources": "public"
     },
     "mac": {
-      "target": "dmg",
       "category": "utilities",
       "type": "development"
     },
