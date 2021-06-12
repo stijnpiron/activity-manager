@@ -32,6 +32,7 @@ jobs:
 
   build:
     name: Build
+    needs: lint-and-test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
