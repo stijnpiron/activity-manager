@@ -10,26 +10,13 @@ import Menu from './components/Menu';
 type AppProps = {
   title: string;
   version: string;
+  shutdown: () => void;
 };
-
-const menuParts: MenuItem[][] = [
-  [
-    { key: 'vouchers', text: 'Vouchers', icon: 'description' },
-    { key: 'activities', text: 'Activiteiten', icon: 'rowing' },
-    { key: 'groups', text: 'Groepen', icon: 'group' },
-  ],
-  [
-    { key: 'settings', text: 'Instellingen', icon: 'settings' },
-    { key: 'logout', text: 'Afmelden', icon: 'exit_to_app' },
-  ],
-];
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      display: 'flex',
-    },
     appBar: {
+      background: '#7aad55',
       zIndex: theme.zIndex.drawer + 1,
       background: '#69AA49',
     },
@@ -37,20 +24,35 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       padding: theme.spacing(3),
     },
+    root: {
+      display: 'flex',
+    },
     title: {
+      alignItems: 'baseline',
       display: 'flex',
       justifyContent: 'space-between',
-      alignItems: 'baseline',
       width: '100%',
     },
     version: {
       fontSize: '12px',
     },
-  })
+  }),
 );
 
 const App: React.FC<AppProps> = (props) => {
   const classes = useStyles();
+
+  const menuParts: MenuItem[][] = [
+    [
+      { disabled: true, icon: 'description', key: 'vouchers', text: 'Vouchers' },
+      { disabled: true, icon: 'rowing', key: 'activities', text: 'Activiteiten' },
+      { disabled: true, icon: 'group', key: 'groups', text: 'Groepen' },
+    ],
+    [
+      { disabled: true, icon: 'settings', key: 'settings', text: 'Instellingen' },
+      { action: props.shutdown, disabled: true, icon: 'exit_to_app', key: 'shutdown', text: 'Afsluiten' },
+    ],
+  ];
 
   return (
     <div className={classes.root}>

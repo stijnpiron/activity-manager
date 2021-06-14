@@ -22,20 +22,21 @@ const drawerWidth = 200;
 const useStyles = makeStyles(() =>
   createStyles({
     drawer: {
-      width: drawerWidth,
       flexShrink: 0,
-    },
-    drawerPaper: {
       width: drawerWidth,
     },
     drawerContainer: {
       overflow: 'auto',
     },
-  })
+    drawerPaper: {
+      width: drawerWidth,
+    },
+  }),
 );
 
 const Menu: React.FC<MenuProps> = ({ parts }) => {
   const classes = useStyles();
+
   const menuParts = parts
     .map((part, i) => (i < parts.length - 1 ? [part, <Divider key={i} />] : [part]))
     .reduce((res, curr) => [...res, ...curr]);
@@ -54,7 +55,7 @@ const Menu: React.FC<MenuProps> = ({ parts }) => {
           Array.isArray(part) ? (
             <List key={`list-${i}`}>
               {part.map((mi) => (
-                <ListItem button key={mi.key}>
+                <ListItem button key={mi.key} disabled={mi.disabled} onClick={mi.action}>
                   <ListItemIcon>
                     <Icon>{mi.icon}</Icon>
                   </ListItemIcon>
@@ -64,7 +65,7 @@ const Menu: React.FC<MenuProps> = ({ parts }) => {
             </List>
           ) : (
             part
-          )
+          ),
         )}
       </div>
     </Drawer>
