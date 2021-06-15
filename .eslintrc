@@ -2,13 +2,23 @@
   "env": {
     "commonjs": true,
     "es2021": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
-  "extends": ["plugin:prettier/recommended", "plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "ignorePatterns": ["node_modules/", "dist/", "jestCoverage/", "**/*.d.ts"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 12
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
   },
   "plugins": ["@typescript-eslint", "prettier", "unused-imports"],
   "rules": {
@@ -17,9 +27,12 @@
     "@typescript-eslint/no-empty-function": "error",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-this-alias": "warn",
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "_*", "varsIgnorePattern": "_*" }],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "_*", "varsIgnorePattern": "_*" }
+    ],
     "@typescript-eslint/no-use-before-define": "error",
-    "array-bracket-newline": ["error", { "multiline": true }],
+    "array-bracket-newline": ["error", "consistent"],
     "array-bracket-spacing": ["error", "never"],
     "arrow-body-style": ["error", "as-needed"],
     "arrow-parens": ["error"],

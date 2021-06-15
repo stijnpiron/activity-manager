@@ -3,8 +3,8 @@ name: Electron-CD
 on:
   # Triggers the workflow on push events but only for the main branch.
   # As pushing directly to main is prohibited, the workflow should only trigger when a pullrequest is merged into main.
-  
-  # Currently building all apps on the macos-latest environment. 
+
+  # Currently building all apps on the macos-latest environment.
   # Can split into separate runs for each platform if needed for compatibility.
   push:
     branches:
@@ -19,7 +19,7 @@ jobs:
 #     strategy:
 #       matrix:
 #        os: [macos-latest, windows-latest, ubuntu-latest]
-        
+
     steps:
       - name: Context
         env:
@@ -41,10 +41,10 @@ jobs:
 
       - name: Publish
         run: |
-          yarn run release
+          yarn release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+
 #       - name: Cleanup artifacts
 #         if: matrix.os != 'windows-latest'
 #         run: |

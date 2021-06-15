@@ -10,8 +10,9 @@ import {
   makeStyles,
   Toolbar,
 } from '@material-ui/core';
-import { MenuItem } from 'interfaces/menu.interface';
+import { MenuItem } from 'interfaces/menu';
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 type MenuProps = {
   parts: MenuItem[][];
@@ -31,6 +32,9 @@ const useStyles = makeStyles(() =>
     drawerPaper: {
       width: drawerWidth,
     },
+    linkButton: {
+      color: '#000000',
+    },
   }),
 );
 
@@ -40,6 +44,8 @@ const Menu: React.FC<MenuProps> = ({ parts }) => {
   const menuParts = parts
     .map((part, i) => (i < parts.length - 1 ? [part, <Divider key={i} />] : [part]))
     .reduce((res, curr) => [...res, ...curr]);
+
+  const currentRoute = useLocation().pathname.replace('/', '');
 
   return (
     <Drawer
@@ -55,7 +61,16 @@ const Menu: React.FC<MenuProps> = ({ parts }) => {
           Array.isArray(part) ? (
             <List key={`list-${i}`}>
               {part.map((mi) => (
-                <ListItem button key={mi.key} disabled={mi.disabled} onClick={mi.action}>
+                <ListItem
+                  button
+                  selected={currentRoute.includes(mi.route || 'no-route')}
+                  key={mi.key}
+                  component={mi.disabled || (!mi.route && mi.disabled) || mi.action ? 'li' : Link}
+                  onClick={mi.action}
+                  to={mi.route ? `/${mi.route}` : undefined}
+                  disabled={mi.disabled}
+                  className={classes.linkButton}
+                >
                   <ListItemIcon>
                     <Icon>{mi.icon}</Icon>
                   </ListItemIcon>

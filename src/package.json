@@ -1,0 +1,17 @@
+{
+  "name": "activity-manager",
+  "productName": "activity-manager",
+  "version": "0.2.0",
+  "main": "./main.prod.js",
+  "author": {
+    "name": "Grasshopper.io",
+    "email": "info@grasshopper.io",
+    "url": "https://grasshopper.io"
+  },
+  "scripts": {
+    "electron-rebuild": "node -r ../.electron/scripts/BabelRegister.js ../.electron/scripts/ElectronRebuild.js",
+    "postinstall": "yarn electron-rebuild"
+  },
+  "license": "MIT",
+  "dependencies": {}
+}
