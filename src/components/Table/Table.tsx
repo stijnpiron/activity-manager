@@ -76,35 +76,31 @@ const DataTable: React.FC<TableProps> = ({ columns, rows, defaultSort }) => {
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
-              {columns.map((column) => {
-                console.info(column.disableSort);
-
-                return (
-                  <TableCell
-                    key={column.id}
-                    align={column.align}
-                    style={{ minWidth: column.minWidth }}
-                    onClick={(): void => sortHandler(column.id)}
-                    sortDirection={orderBy === column.id ? sortDirection : false}
-                    className={`${classes.whiteBackground} ${
-                      column.disableSort
-                        ? `${classes.defaultCursor} ${classes.nonSortableColumn}`
-                        : classes.sortableColumn
-                    }`}
-                  >
-                    {!column.disableSort && (
-                      <TableSortLabel
-                        active={orderBy === column.id}
-                        direction={orderBy === column.id ? sortDirection : 'asc'}
-                        onClick={(): void => sortHandler(column.id)}
-                      >
-                        {column.label}
-                      </TableSortLabel>
-                    )}
-                    {column.disableSort && column.label}
-                  </TableCell>
-                );
-              })}
+              {columns.map((column) => (
+                <TableCell
+                  key={column.id}
+                  align={column.align}
+                  style={{ minWidth: column.minWidth }}
+                  onClick={(): void => sortHandler(column.id)}
+                  sortDirection={orderBy === column.id ? sortDirection : false}
+                  className={`${classes.whiteBackground} ${
+                    column.disableSort
+                      ? `${classes.defaultCursor} ${classes.nonSortableColumn}`
+                      : classes.sortableColumn
+                  }`}
+                >
+                  {!column.disableSort && (
+                    <TableSortLabel
+                      active={orderBy === column.id}
+                      direction={orderBy === column.id ? sortDirection : 'asc'}
+                      onClick={(): void => sortHandler(column.id)}
+                    >
+                      {column.label}
+                    </TableSortLabel>
+                  )}
+                  {column.disableSort && column.label}
+                </TableCell>
+              ))}
             </TableRow>
           </TableHead>
           <TableBody>

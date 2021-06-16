@@ -1,10 +1,11 @@
 export interface MenuItem {
-  key: string;
-  text: string;
-  icon: string;
-  route?: string;
-  disabled?: boolean;
   action?: (...args: any) => any;
+  alwaysEnabled?: boolean;
+  disabled?: boolean;
+  icon: string;
+  key: string;
+  route?: string;
+  text: string;
 }
 
 export interface MenuParts {

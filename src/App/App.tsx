@@ -3,19 +3,23 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { DataProps } from 'interfaces/data';
 import { MenuItem } from 'interfaces/menu';
 import Activities from 'pages/Activities';
-import Groups from 'pages/Groups';
-import Home from 'pages/Home';
+import Groups from 'Pages/Groups';
+import SelectPeriod from 'Pages/SelectPeriod';
 import Vouchers from 'pages/Vouchers';
-import React from 'react';
+import React, { useState } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import Menu from './components/Menu';
 
 type AppProps = {
   title: string;
-  version: string;
+  dataProps: DataProps;
+  getPeriods: () => string[];
+  saveNewPeriod: (period: string) => void;
   shutdown: () => void;
+  version: string;
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -43,11 +47,22 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const App: React.FC<AppProps> = (props) => {
+const App: React.FC<AppProps> = ({ title, version, dataProps, getPeriods, saveNewPeriod, shutdown }) => {
   const classes = useStyles();
+  const [periods, setPeriods] = useState(getPeriods());
+  const [period, setPeriod] = React.useState(periods.length === 1 ? periods[0] : '');
+
+  const addPeriod = (period: string): void => {
+    if (!periods.includes(period)) {
+      setPeriod(period);
+      saveNewPeriod(period);
+      setPeriods([...getPeriods(), period].sort());
+    }
+  };
 
   const parts: MenuItem[][] = [
     [
+      { alwaysEnabled: true, icon: 'check_box', key: 'selectPeriod', route: 'selectPeriod', text: 'Selecteer Periode' },
       { icon: 'group', key: 'groups', route: 'groups', text: 'Groepen' },
       {
         icon: 'rowing',
@@ -71,7 +86,8 @@ const App: React.FC<AppProps> = (props) => {
         text: 'Instellingen',
       },
       {
-        action: props.shutdown,
+        action: shutdown,
+        alwaysEnabled: true,
         icon: 'exit_to_app',
         key: 'shutdown',
         text: 'Afsluiten',
@@ -79,7 +95,9 @@ const App: React.FC<AppProps> = (props) => {
     ],
   ];
 
-  const menuProps = { parts };
+  const menuProps = { parts, periodSelected: !!period };
+  const groupsProps = { dataProps, period };
+  const selectPeriodProps = { addPeriod, periods, selectedPeriod: period, setPeriod };
 
   return (
     <HashRouter>
@@ -88,8 +106,11 @@ const App: React.FC<AppProps> = (props) => {
         <AppBar position="fixed" className={classes.appBar}>
           <Toolbar>
             <Typography variant="h6" noWrap className={classes.title}>
-              <span>{props.title}</span>
-              <span className={classes.version}>v{props.version}</span>
+              <span>
+                {title}
+                {period && <> - SelectedPeriod: {period}</>}
+              </span>
+              <span className={classes.version}>v{version}</span>
             </Typography>
           </Toolbar>
         </AppBar>
@@ -97,8 +118,12 @@ const App: React.FC<AppProps> = (props) => {
         <main className={classes.content}>
           <Toolbar />
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/groups" component={Groups} />
+            <Route
+              exact
+              path={['/', '/selectPeriod']}
+              render={(): React.ReactElement => <SelectPeriod {...selectPeriodProps} />}
+            />
+            <Route exact path="/groups" render={(): React.ReactElement => <Groups {...groupsProps} />} />
             <Route exact path="/activities" component={Activities} />
             <Route exact path="/vouchers" component={Vouchers} />
           </Switch>

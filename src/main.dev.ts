@@ -13,6 +13,7 @@ import { app, BrowserWindow, dialog, ipcMain, shell } from 'electron';
 import log from 'electron-log';
 import Store from 'electron-store';
 import { autoUpdater } from 'electron-updater';
+import fs from 'fs';
 import path from 'path';
 import 'regenerator-runtime/runtime';
 import MenuBuilder from './menu';
@@ -23,6 +24,9 @@ const logMessage = (text: string): void => {
 logMessage('App starting...');
 
 // const isMac = pro  cess.platform === 'darwin';
+const isDev = process.env.NODE_ENV === 'development';
+const debugProd = process.env.DEBUG_PROD === 'true';
+const isProd = process.env.NODE_ENV === 'production';
 
 export default class AppUpdater {
   constructor() {
@@ -33,29 +37,61 @@ export default class AppUpdater {
 }
 
 // first instantiate the class
-const store = new Store({
+const encryptionKey = isDev
+  ? undefined
+  : '%;5}CG{*V/p:?a8Wm)Grgr9CxEGBE=_wD4RQ9v9fkv9[a(jjd{hg5H2f$B?N$.%LXjA[a!;Y}8]M2Pez{4T.t/pNELGyz789iW*HR*N}:TEzXRv.)diHggzim!)Y.zfG';
+
+const appSettingsStore = new Store({
   // we'll call our data file 'user-preferences'
   defaults: {
     // 800x600 is the default size of our window
-    windowBounds: { height: 600, width: 800 },
+    appSettings: {
+      cwd: 'userData',
+      fileExtension: 'kam',
+      periods: [],
+      windowBounds: { height: 768, width: 1366 },
+    },
   },
-  name: 'user-preferences',
-  // encryptionKey: 'encryption key', // use node-keytar to store the encryption key safely
-  // fileExtension: '',
+  fileExtension: 'kam',
+  name: 'settings',
 });
+
+const appSettings = appSettingsStore.get('appSettings');
+
+// clean data on DEV environment on startup, comment out following if to persist data
+// change name const if another filename is wanted.
+if (isDev) {
+  const period = '2021-2';
+
+  const currentPeriodStore = new Store({
+    cwd: appSettings.cwd,
+    encryptionKey,
+    fileExtension: appSettings.fileExtension,
+    name: period,
+  });
+  currentPeriodStore.clear();
+
+  // add seedData to file storage for testing purposes
+  const seedFile = path.join(__dirname, '../seed.json');
+
+  if (fs.existsSync(seedFile)) {
+    const seedData = require(seedFile);
+    currentPeriodStore.set(seedData);
+  }
+}
 
 let mainWindow: BrowserWindow | null = null;
 
-if (process.env.NODE_ENV === 'production') {
+if (isProd) {
   const sourceMapSupport = require('source-map-support');
   sourceMapSupport.install();
 }
 
-if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
+if (isDev || debugProd) {
   require('electron-debug')();
 }
 
-const installExtensions = async () => {
+const installExtensions = (): Promise<any> => {
   const installer = require('electron-devtools-installer');
   const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
   const extensions = ['REACT_DEVELOPER_TOOLS', 'REDUX_DEVTOOLS'];
@@ -74,7 +110,7 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
-const createWindow = async ({ height, width }): Promise<void> => {
+const createWindow = ({ height, width }: { height: number; width: number }): void => {
   const RESOURCES_PATH = app.isPackaged
     ? path.join(process.resourcesPath, 'assets')
     : path.join(__dirname, '../assets');
@@ -96,9 +132,11 @@ const createWindow = async ({ height, width }): Promise<void> => {
   mainWindow.on('resize', () => {
     // the event doesn't pass us the window size, so we call the `getBounds` method which returns an object with
     // the height, width, and x and y coordinates.
-    const { height: newHeight, width: newWidth } = mainWindow.getBounds();
-    // now that we have them, save them using the `set` method.
-    store.set('windowBounds', { height: newHeight, width: newWidth });
+    if (mainWindow) {
+      const { height: newHeight, width: newWidth } = mainWindow.getBounds();
+      // now that we have them, save them using the `set` method.
+      appSettingsStore.set('windowBounds', { height: newHeight, width: newWidth });
+    }
   });
 
   mainWindow.loadURL(`file://${__dirname}/index.html`);
@@ -148,8 +186,8 @@ app.on('window-all-closed', () => {
   }
 });
 
-const getHeightAndWidth = () => {
-  const { height, width } = store.get('windowBounds');
+const getHeightAndWidth = (): { height: number; width: number } => {
+  const { height, width } = appSettings.windowBounds;
 
   return { height, width };
 };
@@ -157,11 +195,13 @@ const getHeightAndWidth = () => {
 app.on('ready', () => {
   createWindow(getHeightAndWidth());
 
-  mainWindow.webContents.on('did-frame-finish-load', async () => {
-    if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
-      // await installExtensions();
-    }
-  });
+  if (mainWindow) {
+    mainWindow.webContents.on('did-frame-finish-load', () => {
+      if (isDev || debugProd) {
+        installExtensions();
+      }
+    });
+  }
 });
 
 app.on('activate', () => {
@@ -172,15 +212,29 @@ app.on('activate', () => {
   }
 });
 
-ipcMain.on('shutdown', async () => {
+// handle shutdown requests
+ipcMain.on('shutdown', (): void => {
   if (
     dialog.showMessageBoxSync({
+      buttons: ['Cancel', 'Ok'],
       message: 'Are you sure you want to exit?',
       title: 'Exit App',
       type: 'warning',
-      buttons: ['Cancel', 'Ok'],
     })
   ) {
     app.quit();
   }
+});
+
+ipcMain.on(
+  'app-settings',
+  (event) => (event.returnValue = { ...appSettings, dataLocation: appSettings.cwd, encryptionKey }),
+);
+ipcMain.on('get-periods', (event) => (event.returnValue = [...appSettings.periods]));
+
+ipcMain.on('add-period', (_, period) => {
+  const currentPeriods = [...appSettings.periods.filter((p) => p !== period)];
+  const newPeriods = [...currentPeriods, period].sort();
+  console.info({ currentPeriods, newPeriods });
+  appSettingsStore.set('appSettings.periods', [...appSettings.periods.filter((p) => p !== period), period]);
 });

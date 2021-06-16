@@ -16,6 +16,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 type MenuProps = {
   parts: MenuItem[][];
+  periodSelected: boolean;
 };
 
 const drawerWidth = 200;
@@ -38,7 +39,7 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-const Menu: React.FC<MenuProps> = ({ parts }) => {
+const Menu: React.FC<MenuProps> = ({ parts, periodSelected }) => {
   const classes = useStyles();
 
   const menuParts = parts
@@ -65,10 +66,10 @@ const Menu: React.FC<MenuProps> = ({ parts }) => {
                   button
                   selected={currentRoute.includes(mi.route || 'no-route')}
                   key={mi.key}
-                  component={mi.disabled || (!mi.route && mi.disabled) || mi.action ? 'li' : Link}
+                  component={mi.disabled || (!periodSelected && !mi.alwaysEnabled) || !mi.route ? 'li' : Link}
                   onClick={mi.action}
                   to={mi.route ? `/${mi.route}` : undefined}
-                  disabled={mi.disabled}
+                  disabled={!mi.alwaysEnabled && (mi.disabled || !periodSelected)}
                   className={classes.linkButton}
                 >
                   <ListItemIcon>
