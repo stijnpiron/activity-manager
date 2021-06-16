@@ -26,7 +26,7 @@ logMessage('App starting...');
 // const isMac = pro  cess.platform === 'darwin';
 const isDev = process.env.NODE_ENV === 'development';
 const debugProd = process.env.DEBUG_PROD === 'true';
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = app.isPackaged;
 
 export default class AppUpdater {
   constructor() {

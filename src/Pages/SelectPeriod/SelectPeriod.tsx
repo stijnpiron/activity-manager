@@ -64,7 +64,6 @@ const SelectPeriod: React.FC<ISelectPeriodProps> = ({ addPeriod, periods, select
 
   return (
     <div className={clsx(classes.container, classes.flexColumn)}>
-      <div>{periods?.length}</div>
       {periods?.length > 0 && (
         <>
           <div>Select the period to start with:</div>
