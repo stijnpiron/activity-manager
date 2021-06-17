@@ -232,9 +232,6 @@ ipcMain.on(
 );
 ipcMain.on('get-periods', (event) => (event.returnValue = [...appSettings.periods]));
 
-ipcMain.on('add-period', (_, period) => {
-  const currentPeriods = [...appSettings.periods.filter((p) => p !== period)];
-  const newPeriods = [...currentPeriods, period].sort();
-  console.info({ currentPeriods, newPeriods });
-  appSettingsStore.set('appSettings.periods', [...appSettings.periods.filter((p) => p !== period), period]);
+ipcMain.on('add-period', (_, periods) => {
+  appSettingsStore.set('appSettings.periods', periods);
 });

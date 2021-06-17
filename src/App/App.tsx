@@ -17,7 +17,7 @@ type AppProps = {
   title: string;
   dataProps: DataProps;
   getPeriods: () => string[];
-  saveNewPeriod: (period: string) => void;
+  saveNewPeriod: (periods: string[]) => void;
   shutdown: () => void;
   version: string;
 };
@@ -52,11 +52,12 @@ const App: React.FC<AppProps> = ({ title, version, dataProps, getPeriods, saveNe
   const [periods, setPeriods] = useState(getPeriods());
   const [period, setPeriod] = React.useState(periods.length === 1 ? periods[0] : '');
 
-  const addPeriod = (period: string): void => {
-    if (!periods.includes(period)) {
+  const addPeriod = (period: string, currentPeriods: string[]): void => {
+    if (!currentPeriods.includes(period)) {
       setPeriod(period);
-      saveNewPeriod(period);
-      setPeriods([...getPeriods(), period].sort());
+      const newPeriods = [...currentPeriods, period];
+      saveNewPeriod(newPeriods);
+      setPeriods(newPeriods);
     }
   };
 

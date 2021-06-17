@@ -3,7 +3,7 @@
     {
       "accompaniment": 3,
       "bubble": 1,
-      "bubblePart": 1,
+      "bubblePart": "A",
       "department": "Limburg",
       "id": 1,
       "participants": 21,
@@ -13,7 +13,7 @@
     {
       "accompaniment": 4,
       "bubble": 1,
-      "bubblePart": 2,
+      "bubblePart": "B",
       "department": "Limburg",
       "id": 2,
       "participants": 21,
@@ -23,7 +23,7 @@
     {
       "accompaniment": 9,
       "bubble": 2,
-      "bubblePart": 1,
+      "bubblePart": "A",
       "department": "SMB",
       "id": 3,
       "participants": 53,
@@ -33,7 +33,7 @@
     {
       "accompaniment": 5,
       "bubble": 3,
-      "bubblePart": 1,
+      "bubblePart": "A",
       "department": "Antwerpen",
       "id": 4,
       "participants": 39,
@@ -43,7 +43,7 @@
     {
       "accompaniment": 2,
       "bubble": 4,
-      "bubblePart": 1,
+      "bubblePart": "A",
       "department": "RMT",
       "id": 5,
       "participants": 19,
@@ -53,7 +53,7 @@
     {
       "accompaniment": 3,
       "bubble": 4,
-      "bubblePart": 2,
+      "bubblePart": "B",
       "department": "RMT",
       "id": 6,
       "participants": 19,
@@ -63,7 +63,7 @@
     {
       "accompaniment": 7,
       "bubble": 5,
-      "bubblePart": 1,
+      "bubblePart": "A",
       "department": "Waas & Dender",
       "id": 7,
       "participants": 41,
@@ -73,7 +73,7 @@
     {
       "accompaniment": 10,
       "bubble": 6,
-      "bubblePart": 1,
+      "bubblePart": "A",
       "department": "Brugge",
       "id": 8,
       "participants": 59,
@@ -83,7 +83,7 @@
     {
       "accompaniment": 7,
       "bubble": 7,
-      "bubblePart": 1,
+      "bubblePart": "A",
       "department": "Gent",
       "id": 9,
       "participants": 40,
@@ -93,7 +93,7 @@
     {
       "accompaniment": 7,
       "bubble": 7,
-      "bubblePart": 1,
+      "bubblePart": "A",
       "department": "Gent",
       "id": 10,
       "participants": 40,
@@ -103,7 +103,7 @@
     {
       "accompaniment": 6,
       "bubble": 8,
-      "bubblePart": 1,
+      "bubblePart": "A",
       "department": "Leuven",
       "id": 11,
       "participants": 41,
@@ -113,7 +113,7 @@
     {
       "accompaniment": 7,
       "bubble": 9,
-      "bubblePart": 1,
+      "bubblePart": "A",
       "department": "Oostende",
       "id": 12,
       "participants": 58,
@@ -123,7 +123,7 @@
     {
       "accompaniment": 8,
       "bubble": 10,
-      "bubblePart": 1,
+      "bubblePart": "A",
       "department": "RoeTie",
       "id": 13,
       "participants": 39,
@@ -133,7 +133,7 @@
     {
       "accompaniment": 5,
       "bubble": 11,
-      "bubblePart": 1,
+      "bubblePart": "A",
       "department": "ZWVL",
       "id": 14,
       "participants": 38,

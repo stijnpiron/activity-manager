@@ -7,7 +7,7 @@ import './index.css';
 
 const shutdown = (): void => ipcRenderer.send('shutdown', 'now');
 
-const saveNewPeriod = (period: string): void => ipcRenderer.send('add-period', period);
+const saveNewPeriod = (periods: string[]): void => ipcRenderer.send('add-period', periods);
 
 const getPeriods = (): string[] => ipcRenderer.sendSync('get-periods');
 

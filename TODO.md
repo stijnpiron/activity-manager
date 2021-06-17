@@ -11,3 +11,8 @@
 -   [ ] Add bug feedback flow
 -   [ ] Add share logs flow
 -   [ ] The user should be able to edit and remove periods
+-   [ ] Add translations to app
+
+## Core
+
+-   [ ] Implement bump script
