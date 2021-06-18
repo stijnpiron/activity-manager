@@ -4,13 +4,15 @@ module.exports = {
     '<rootDir>/src/**/*.ts',
     '<rootDir>/src/**/*.tsx',
     '!<rootDir>/src/**/*.spec.ts',
+    '!<rootDir>/src/main.dev.ts',
+    '!<rootDir>/src/main.prod.js',
     '!<rootDir>/src/**/*.spec.tsx',
     '!<rootDir>/src/**/*.test.ts',
     '!<rootDir>/src/**/*.test.tsx',
     '!**/node_modules/**',
     '!**/__tests__/**',
   ],
-  coverageDirectory: 'jestCoverage',
+  coverageDirectory: 'coverage',
   coverageThreshold: {
     global: {
       branches: 100,
@@ -28,7 +30,7 @@ module.exports = {
   reporters: ['default'],
   roots: ['<rootDir>/src'],
   testEnvironment: 'node',
-  testMatch: ['**/__tests__/**/*.[jt]s', '**/?(*.)+(spec|test).[jt]s'],
+  testMatch: ['**/__tests__/**/*.[jt]s', '**/?(*.)+(spec|test).[jt]s[x]'],
   testPathIgnorePatterns: ['/node_modules/', '/dist/', '/build/'],
   transform: {
     '^.+\\.(ts)$': 'ts-jest',

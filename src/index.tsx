@@ -1,18 +1,28 @@
-import App from 'components/App/App';
+import App from 'App/App';
+import { ipcRenderer } from 'electron';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import pjson from '../package.json';
 import './index.css';
 
-// TODO: find a fix to enable app shutdown initiated from React
-// const shutdown = (): void => ipcRenderer.send('shutdown');
-const shutdown = (): void => {
-  console.info('shutdown not implemented');
+const shutdown = (): void => ipcRenderer.send('shutdown', 'now');
+
+const saveNewPeriod = (periods: string[]): void => ipcRenderer.send('add-period', periods);
+
+const getPeriods = (): string[] => ipcRenderer.sendSync('get-periods');
+
+const { encryptionKey, fileExtension, dataLocation } = ipcRenderer.sendSync('app-settings');
+
+const title = 'Kazou - Activity Manager';
+const { version } = pjson;
+
+const appProps = {
+  dataProps: { dataLocation, encryptionKey, fileExtension },
+  getPeriods,
+  saveNewPeriod,
+  shutdown,
+  title,
+  version,
 };
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App title="Kazou - Activity Manager" version={pjson.version} shutdown={shutdown} />
-  </React.StrictMode>,
-  document.getElementById('root'),
-);
+render(<App {...appProps} />, document.getElementById('root'));

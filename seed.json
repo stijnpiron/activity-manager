@@ -1,0 +1,144 @@
+{
+  "groups": [
+    {
+      "accompaniment": 3,
+      "bubble": 1,
+      "bubblePart": "A",
+      "department": "Limburg",
+      "id": 1,
+      "participants": 21,
+      "pavilion": "9B",
+      "profiling": "Boomhutten"
+    },
+    {
+      "accompaniment": 4,
+      "bubble": 1,
+      "bubblePart": "B",
+      "department": "Limburg",
+      "id": 2,
+      "participants": 21,
+      "pavilion": "9B",
+      "profiling": "Boomhutten"
+    },
+    {
+      "accompaniment": 9,
+      "bubble": 2,
+      "bubblePart": "A",
+      "department": "SMB",
+      "id": 3,
+      "participants": 53,
+      "pavilion": "1A - 1B (141-146)",
+      "profiling": "Splash & Fun"
+    },
+    {
+      "accompaniment": 5,
+      "bubble": 3,
+      "bubblePart": "A",
+      "department": "Antwerpen",
+      "id": 4,
+      "participants": 39,
+      "pavilion": "2A - 1B (147-150)",
+      "profiling": "Aqua Extreme"
+    },
+    {
+      "accompaniment": 2,
+      "bubble": 4,
+      "bubblePart": "A",
+      "department": "RMT",
+      "id": 5,
+      "participants": 19,
+      "pavilion": "3A",
+      "profiling": "Mountain Action"
+    },
+    {
+      "accompaniment": 3,
+      "bubble": 4,
+      "bubblePart": "B",
+      "department": "RMT",
+      "id": 6,
+      "participants": 19,
+      "pavilion": "3B (347-350)",
+      "profiling": "Mountain Action"
+    },
+    {
+      "accompaniment": 7,
+      "bubble": 5,
+      "bubblePart": "A",
+      "department": "Waas & Dender",
+      "id": 7,
+      "participants": 41,
+      "pavilion": "6",
+      "profiling": "Splash & Fun"
+    },
+    {
+      "accompaniment": 10,
+      "bubble": 6,
+      "bubblePart": "A",
+      "department": "Brugge",
+      "id": 8,
+      "participants": 59,
+      "pavilion": "4B - 2C - 4A",
+      "profiling": "Puur Avontuur"
+    },
+    {
+      "accompaniment": 7,
+      "bubble": 7,
+      "bubblePart": "A",
+      "department": "Gent",
+      "id": 9,
+      "participants": 40,
+      "pavilion": "5",
+      "profiling": "Boomhutten"
+    },
+    {
+      "accompaniment": 7,
+      "bubble": 7,
+      "bubblePart": "A",
+      "department": "Gent",
+      "id": 10,
+      "participants": 40,
+      "pavilion": "",
+      "profiling": "Boomhutten"
+    },
+    {
+      "accompaniment": 6,
+      "bubble": 8,
+      "bubblePart": "A",
+      "department": "Leuven",
+      "id": 11,
+      "participants": 41,
+      "pavilion": "7",
+      "profiling": "Mountain Action"
+    },
+    {
+      "accompaniment": 7,
+      "bubble": 9,
+      "bubblePart": "A",
+      "department": "Oostende",
+      "id": 12,
+      "participants": 58,
+      "pavilion": "2B - 3B (341-346)",
+      "profiling": "Crazy Adventure"
+    },
+    {
+      "accompaniment": 8,
+      "bubble": 10,
+      "bubblePart": "A",
+      "department": "RoeTie",
+      "id": 13,
+      "participants": 39,
+      "pavilion": "9A",
+      "profiling": "Kazouwerf"
+    },
+    {
+      "accompaniment": 5,
+      "bubble": 11,
+      "bubblePart": "A",
+      "department": "ZWVL",
+      "id": 14,
+      "participants": 38,
+      "pavilion": "8",
+      "profiling": "Ultieme Dans"
+    }
+  ]
+}
