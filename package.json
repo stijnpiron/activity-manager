@@ -1,6 +1,7 @@
 {
   "name": "activity-manager",
-  "version": "0.2.1",
+  "version": "0.2.1-192",
+  "buildNumber": 192,
   "private": true,
   "author": {
     "name": "Grasshopper.io",
@@ -10,20 +11,28 @@
   "scripts": {
     "build:main": "cross-env NODE_ENV=production webpack --config ./.electron/configs/webpack.config.main.prod.babel.js",
     "build:renderer": "cross-env NODE_ENV=production webpack --config ./.electron/configs/webpack.config.renderer.prod.babel.js",
-    "build": "concurrently \"yarn build:main\" \"yarn build:renderer\"",
-    "bump": "yarn bump:patch",
-    "bump:major": "",
-    "bump:minor": "",
-    "bump:patch": "",
-    "bump:alpha": "",
-    "bump:beta": "",
+    "build": "yarn bump:build && concurrently \"yarn build:main\" \"yarn build:renderer\"",
+    "bump": "node scripts/bumpVersion.js",
+    "bump:to-release": "node scripts/bumpVersion.js -r",
+    "bump:build": "node scripts/bumpVersion.js -B",
+    "bump:alpha": "node scripts/bumpVersion.js -a",
+    "bump:beta": "node scripts/bumpVersion.js -b",
+    "bump:major": "node scripts/bumpVersion.js -M",
+    "bump:minor": "node scripts/bumpVersion.js -m",
+    "bump:patch": "node scripts/bumpVersion.js -p",
+    "bump:major-alpha": "node scripts/bumpVersion.js -Ma",
+    "bump:minor-alpha": "node scripts/bumpVersion.js -ma",
+    "bump:patch-alpha": "node scripts/bumpVersion.js -pa",
+    "bump:major-beta": "node scripts/bumpVersion.js -Mb",
+    "bump:minor-beta": "node scripts/bumpVersion.js -mb",
+    "bump:patch-beta": "node scripts/bumpVersion.js -pb",
     "clean": "rimraf src/dist release",
     "clean:all": "rimraf src/dist release src/main.prod.js coverage src/node_modules node_modules ",
-    "lf": "npm run prettier && npm run lint",
+    "lf": "yarn bump:build && npm run prettier && npm run lint",
     "lint:check": "eslint src/**/*.{ts,tsx}",
     "lint": "eslint --fix src/**/*.{ts,tsx}",
     "package": "yarn prepare && electron-builder build --mac --linux --windows --publish never",
-    "postinstall": "node -r @babel/register .electron/scripts/CheckNativeDep.js && electron-builder install-app-deps && yarn cross-env NODE_ENV=development webpack --config ./.electron/configs/webpack.config.renderer.dev.dll.babel.js && opencollective-postinstall && yarn-deduplicate yarn.lock",
+    "postinstall": "yarn bump:build && node -r @babel/register .electron/scripts/CheckNativeDep.js && electron-builder install-app-deps && yarn cross-env NODE_ENV=development webpack --config ./.electron/configs/webpack.config.renderer.dev.dll.babel.js && opencollective-postinstall && yarn-deduplicate yarn.lock",
     "pre-commit": "lint-staged",
     "prepare": "yarn clean && yarn build",
     "prettier:check": "prettier",
@@ -32,7 +41,7 @@
     "release": "yarn prepare && electron-builder build --mac --linux --windows --publish always",
     "start:main": "cross-env NODE_ENV=development electron -r ./.electron/scripts/BabelRegister ./src/main.dev.ts",
     "start:renderer": "cross-env NODE_ENV=development webpack serve --config ./.electron/configs/webpack.config.renderer.dev.babel.js",
-    "start": "node -r @babel/register ./.electron/scripts/CheckPortInUse.js && yarn start:renderer",
+    "start": "yarn bump:build && node -r @babel/register ./.electron/scripts/CheckPortInUse.js && yarn start:renderer",
     "test:ci": "echo \"No tests available at the moment\"",
     "test": "jest"
   },
@@ -82,6 +91,7 @@
     "babel-plugin-dev-expression": "^0.2.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "chalk": "^4.1.0",
+    "command-line-args": "^5.1.1",
     "concurrently": "^5.3.0",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
@@ -144,10 +154,10 @@
     "uuid": "^8.3.2"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.{jsx,ts,tsx}": [
       "npm run lint:check"
     ],
-    "src/**/*.{js,jsx,ts,tsx}": [
+    "src/**/*.{jsx,ts,tsx}": [
       "npm run prettier"
     ],
     "{*.json,.{babelrc,eslintrc,prettierrc}}": [
