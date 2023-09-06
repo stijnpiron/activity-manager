@@ -62,7 +62,7 @@
     "@typescript-eslint/parser": "^4.26.1",
     "babel-jest": "26.6.0",
     "concurrently": "^6.2.0",
-    "electron": "^13.1.2",
+    "electron": "^22.3.21",
     "electron-builder": "^22.11.7",
     "electron-devtools-installer": "^3.2.0",
     "electronmon": "^2.0.1",
